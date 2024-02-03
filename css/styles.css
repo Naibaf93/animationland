@@ -9,6 +9,7 @@
 
 body {
     display: grid;
+    counter-reset: score;
     height: 100vh;
     margin: 0;
     place-items: center;
@@ -35,6 +36,19 @@ body {
     top: 0;
     width: 80px;
     z-index: 2;
+  }
+
+  input[type=checkbox]:focus {
+    appearance: none;
+    outline: none;
+  }
+
+  input:checked {
+    counter-increment: score;
+  }
+
+  .score::after {
+    content: counter(score);  
   }
 
   @keyframes bunny {
@@ -385,4 +399,22 @@ body {
     background-size: 33px 30px;
     height: 30px;
     width: 100%;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    margin: 45px 0 10px;
+  }
+
+  .title img {
+    width: 60%;
+  }
+
+  .score {
+    color: var(--light-brown);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
   }
